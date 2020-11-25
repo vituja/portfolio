@@ -232,13 +232,22 @@ export default {
           form.message = ""
           formSubmission.success = true
           formSubmission.modalVisible = true
-          console.log("good")
+          document.querySelector("body").classList.add("no-scroll")
+          resetForm()
         })
-        .catch(error => {
+        .catch(() => {
           formSubmission.success = false
           formSubmission.modalVisible = true
-          console.log(error)
+          document.querySelector("body").classList.add("no-scroll")
         })
+    }
+    function resetForm() {
+      const validationFields = document.querySelectorAll(
+        ".text-field, .text-area"
+      )
+      validationFields.forEach(field => {
+        field.classList.remove("is-visited")
+      })
     }
 
     const formSubmission = reactive({
@@ -248,6 +257,7 @@ export default {
 
     function closeFormFeedback() {
       formSubmission.modalVisible = false
+      document.querySelector("body").classList.remove("no-scroll")
     }
 
     return {
