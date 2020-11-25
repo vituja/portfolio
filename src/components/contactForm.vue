@@ -58,7 +58,61 @@
       </button>
     </div>
     <mdn-button type="submit">Odeslat</mdn-button>
-    <modal-window v-if="formSubmission.modalVisible"> </modal-window>
+    <modal-window
+      v-if="formSubmission.modalVisible"
+      @closemodal="closeFormFeedback"
+    >
+      <div class="modal__main">
+        <div class="modal__head">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="100"
+            height="100"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            v-if="formSubmission.success"
+          >
+            <path
+              fill="green"
+              d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+            ></path>
+          </svg>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="100"
+            height="100"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 352 512"
+            v-else
+          >
+            <path
+              fill="red"
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+            ></path>
+          </svg>
+        </div>
+        <div class="modal__content">
+          <div class="modal__content__success" v-if="formSubmission.success">
+            <h2>Odesláno</h2>
+            <p>Formulář byl úspěšně odeslán.</p>
+          </div>
+          <div class="modal__content__error" v-else>
+            <h2>Chyba</h2>
+            <p>
+              Při odeslání formuláře se vyskytla chyba. Prosím napište svůj
+              dotaz na adresu
+              <a href="mailto:jan@janvitu.dev" class="modal__link"
+                >jan@janvitu.dev</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </modal-window>
     <modal-window v-if="termsAndConditionsOpenned" @closemodal="closeModal">
       <article>
         <h2>Zásady ochrany osobních údajů</h2>
@@ -187,10 +241,15 @@ export default {
           console.log(error)
         })
     }
+
     const formSubmission = reactive({
       modalVisible: false,
       success: false
     })
+
+    function closeFormFeedback() {
+      formSubmission.modalVisible = false
+    }
 
     return {
       form,
@@ -198,7 +257,8 @@ export default {
       termsAndConditionsOpenned,
       openModal,
       closeModal,
-      formSubmission
+      formSubmission,
+      closeFormFeedback
     }
   }
 }
@@ -394,6 +454,19 @@ export default {
   }
   button {
     transition: color 0.2s ease-in-out;
+    &:hover {
+      color: var(--main-complement-color);
+    }
+  }
+}
+.modal__main * {
+  text-align: center;
+}
+#contact .modal__content {
+  color: var(--main-dark-color);
+  .modal__link {
+    font-weight: 600;
+    color: var(--main-dark-color);
     &:hover {
       color: var(--main-complement-color);
     }
