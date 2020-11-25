@@ -632,8 +632,8 @@
         >Affinity&nbsp;Designer</a
       >,
       <a href="https://code.visualstudio.com/" class="link-foot">
-        Visual&nbsp;Studio&nbsp;Code
-      </a>
+        Visual&nbsp;Studio&nbsp;Code</a
+      >,
       <a href="https://neovim.io" class="link-foot">
         Neovim
       </a>
