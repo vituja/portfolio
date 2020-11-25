@@ -22,11 +22,6 @@ export default {
     const updateNavStatus = () => {
       context.emit("toggle")
     }
-    /* watchEffect(() => {
-      props.navIsOpen
-        // ? document.querySelector("body").classList.add("no-scroll")
-        // : document.querySelector("body").classList.remove("no-scroll")
-    }) */
     return { updateNavStatus }
   }
 }

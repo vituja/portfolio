@@ -3,7 +3,7 @@
     name="contact"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    @submit.prevent="handleSubmit(form.email, form.subject, form.message)"
+    @submit.prevent="handleSubmit"
   >
     <div class="text-field">
       <input
@@ -197,6 +197,7 @@ export default {
   },
   setup() {
     const termsAndConditionsOpenned = ref(false)
+
     function openModal() {
       termsAndConditionsOpenned.value = true
       document.querySelector("body").classList.add("no-scroll")
@@ -211,7 +212,8 @@ export default {
       subject: "",
       message: ""
     })
-    function handleSubmit(emailAddress, messageSubject, message) {
+
+    function handleSubmit() {
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
       }
@@ -220,9 +222,9 @@ export default {
           "/",
           encode({
             "form-name": "contact",
-            email: emailAddress,
-            subject: messageSubject,
-            message: message
+            email: form.email,
+            subject: form.subject,
+            message: form.message
           }),
           axiosConfig
         )

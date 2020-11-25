@@ -33,9 +33,6 @@ export default {
       type: String,
       default: "Placeholder"
     }
-  },
-  setup() {
-    return {}
   }
 }
 </script>

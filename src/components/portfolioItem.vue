@@ -14,11 +14,6 @@
       </p>
       <div class="portfolio-item__tags">
         <div class="portfolio-item__tag" v-for="tag in tags" :key="tag">
-          <!-- <img
-            :src="tag.icon"
-            :alt="`${tag.name} icon`"
-            class="portfolio-item__tag-icon"
-          /> -->
           <span class="portfolio-item__tag-name">
             {{ tag }}
           </span>

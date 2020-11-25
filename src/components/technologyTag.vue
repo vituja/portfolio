@@ -31,9 +31,6 @@ export default {
     tagText: {
       type: String
     }
-  },
-  setup() {
-    return {}
   }
 }
 </script>
