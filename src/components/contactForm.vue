@@ -3,7 +3,7 @@
     name="contact"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    @submit="handleSubmit(form.email, form.subject, form.message)"
+    @submit.prevent="handleSubmit(form.email, form.subject, form.message)"
   >
     <div class="text-field">
       <input
@@ -212,7 +212,6 @@ export default {
       message: ""
     })
     function handleSubmit(emailAddress, messageSubject, message) {
-      event.preventDefault
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
       }
