@@ -1286,6 +1286,9 @@ footer {
   html {
     font-size: 18px;
   }
+  .tag {
+    font-size: 0.8rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   html {

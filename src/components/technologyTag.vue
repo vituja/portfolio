@@ -40,7 +40,7 @@ export default {
   position: relative;
   color: var(--text-color);
   background-color: var(--background-color);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   height: fit-content;
   display: flex;
   align-content: center;
