@@ -280,7 +280,8 @@ export default {
   position: relative;
   text-align: left;
   min-width: 280px;
-  height: 48px;
+  min-height: 48px;
+  height: 2.35rem;
   background: rgba(0, 0, 0, 0.1);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;

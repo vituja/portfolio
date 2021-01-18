@@ -648,6 +648,8 @@
         class="link-foot"
       >
         Nunito&nbsp;Sans
+      </a> & <a href="https://fontawesome.com/" target="blank" class="link-foot">
+        Font&nbsp;Awesome
       </a>
       .
     </p>
@@ -704,4 +706,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
